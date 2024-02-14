@@ -1,0 +1,24 @@
+{% extends "gabarit.twig"%}
+{% block titre %}Contact{% endblock %}
+{% block contenu %}
+  <h1>Entreprise {{ employes.Titre }} </h1>
+  <table class="table"><tbody>
+    {% for departement in employes.Departements %}
+    <tr><th scope="col" colspan="3">{{ departement.Service }}</th></tr>
+      {% for personnel in departement.Personnel %}
+        <tr>
+          <td>
+            {{ personnel.nom }} {{ personnel.prenom }}
+          </td>
+          <td>
+            <a href="mailto:"{{ personnel.mel }}"">{{ personnel.mel }}</a>
+          </td>
+          <td>
+            {{ personnel.tel }} 
+          </td>
+        </tr>
+        {% endfor %}
+  {% endfor %}
+</tbody></table>
+{% endblock %}
+ 
